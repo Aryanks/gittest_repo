@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 jobs:
   
   #deply_test:
@@ -8,19 +8,20 @@ jobs:
 
     #machine: true
     steps:
- - add_ssh_keys:
-     fingerprints:
+    - checkout
+    - add_ssh_keys:
+    - fingerprints:
        - "40:a2:74:e4:92:a4:ce:71:2b:eb:15:aa:dd:c7:68:60"
     
-    steps:
-      - run: |
+  #  steps:
+ #     - run: |
      #     ls
  #        export SSHPASS=$USER_PASS
-          sshpass -e ssh ubuntu@13.59.53.222 'ls' 
+   #       sshpass -e ssh ubuntu@13.59.53.222 'ls' 
           
                       
 workflows:
- version: 2
+ version: 2.1
 # rolling_update:
    jobs:
  #    - deploy_test:
