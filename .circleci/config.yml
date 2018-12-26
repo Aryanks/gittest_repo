@@ -1,6 +1,11 @@
 version: 2
 jobs:
+  
   deply_test:
+   dependencies:
+  pre:
+    - sudo apt-get update; sudo apt-get install ssh-pass
+
     machine: true
     steps:
       - run: |
