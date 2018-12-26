@@ -1,13 +1,6 @@
 version: 2
 jobs:
-  build:
-    docker:
-      - image: circleci/node:8.10.0
-    working_directory: ~/repo
-     SSHPASS:USER_PASS
     steps:
-      - checkout
-      - run: npm install
       - run: |
               export SSHPASS=$USER_PASS
               sshpass -e ssh ubuntu@13.59.53.222 'ls' 
