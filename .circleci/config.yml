@@ -7,3 +7,14 @@ jobs:
           ls
  #        export SSHPASS=$USER_PASS
           sshpass -e ssh ubuntu@13.59.53.222 'ls' 
+          
+                      
+workflows:
+ version: 2
+ rolling_update:
+   jobs:
+     - deploy_test:
+         filters:
+           branches:
+             only:
+               - master
