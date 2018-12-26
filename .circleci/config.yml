@@ -4,7 +4,7 @@ jobs:
     docker:
       - image: circleci/node:8.10.0
     working_directory: ~/repo
-     USER_PASS:SSH_KEY
+     SSHPASS:USER_PASS
     steps:
       - checkout
       - run: npm install
