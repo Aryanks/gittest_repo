@@ -1,31 +1,22 @@
-version: 2.1
+version: 2
 jobs:
-  
-  #deply_test:
-   #dependencies:
-  #pre:
-   # - sudo apt-get update; sudo apt-get install ssh-pass
+ vultr_deploy_fetchsh:
+   machine: true
+   steps:
+     - run:
+         command: |
+           ssh-keyscan 13.59.53.222 >> ~/.ssh/known_hosts
 
-    #machine: true
-    steps:
-    - checkout
-    - add_ssh_keys:
-    - fingerprints:
-       - "40:a2:74:e4:92:a4:ce:71:2b:eb:15:aa:dd:c7:68:60"
-    
-  #  steps:
- #     - run: |
-     #     ls
- #        export SSHPASS=$USER_PASS
-   #       sshpass -e ssh ubuntu@13.59.53.222 'ls' 
-          
-                      
+     - run: |
+             sudo apt update && sudo apt install sshpass -y
+             export SSHPASS=$USER_PASS
+             sshpass -e ssh ubuntu@13.59.53.222 'ls /ubuntu/home'
 workflows:
- version: 2.1
-# rolling_update:
+ version: 2
+ rolling_update:
    jobs:
- #    - deploy_test:
-  #       filters:
+     - vultr_deploy_fetchsh:
+         filters:
            branches:
              only:
                - master
