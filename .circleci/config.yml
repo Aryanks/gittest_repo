@@ -1,10 +1,11 @@
 version: 2
+- 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git sshpass -y )'
 jobs:
   build:
     docker:
       - image: circleci/node:8.10.0
     working_directory: ~/repo
-     SSHPASS:SSH_KEY
+     USER_PASS:SSH_KEY
     steps:
       - checkout
       - run: npm install
