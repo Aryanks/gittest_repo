@@ -1,5 +1,6 @@
 version: 2
 jobs:
+  deply_test
     machine: true
     steps:
       - run: |
