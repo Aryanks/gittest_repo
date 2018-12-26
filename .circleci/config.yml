@@ -1,12 +1,12 @@
 version: 2
 jobs:
   
-  deply_test:
-   dependencies:
-  pre:
-    - sudo apt-get update; sudo apt-get install ssh-pass
+  #deply_test:
+   #dependencies:
+  #pre:
+   # - sudo apt-get update; sudo apt-get install ssh-pass
 
-    machine: true
+    #machine: true
     steps:
  - add_ssh_keys:
      fingerprints:
@@ -14,17 +14,17 @@ jobs:
     
     steps:
       - run: |
-          ls
+     #     ls
  #        export SSHPASS=$USER_PASS
           sshpass -e ssh ubuntu@13.59.53.222 'ls' 
           
                       
 workflows:
  version: 2
- rolling_update:
+# rolling_update:
    jobs:
-     - deploy_test:
-         filters:
+ #    - deploy_test:
+  #       filters:
            branches:
              only:
                - master
