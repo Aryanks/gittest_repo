@@ -1,5 +1,4 @@
 version: 2
-- 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git sshpass -y )'
 jobs:
   build:
     docker:
