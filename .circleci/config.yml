@@ -9,7 +9,7 @@ jobs:
 
      - run: |
              sudo apt update && sudo apt install sshpass -y
-            export SSHPASS=$USER_PASS1
+             export SSHPASS=$USER_PASS1
              sshpass -e ssh ubuntu@13.59.53.222 
 workflows:
  version: 2
